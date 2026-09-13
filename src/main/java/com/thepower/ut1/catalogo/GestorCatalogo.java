@@ -135,7 +135,11 @@ public class GestorCatalogo {
         List<String> lineas = Files.readAllLines(ficheroTexto, StandardCharsets.UTF_8);
 
         for (String linea : lineas) {
-          
+            String[] campos = linea.split(";");
+            int id = Integer.parseInt(campos[0]);
+            String nombre = campos[1];
+            double precio = Double.parseDouble(campos[2]);
+            resultado.add(new Producto(id, nombre, precio));
         }
 
         return resultado;
